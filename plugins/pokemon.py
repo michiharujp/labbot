@@ -1,10 +1,10 @@
 # coding: utf-8
 
 import urllib.request
-import re
-from bs4 import BeautifulSoup
-from slackbot.bot import respond_to
 import random
+import re
+from slackbot.bot import respond_to
+from bs4 import BeautifulSoup
 
 def pokemon_text(url):
 
@@ -21,7 +21,7 @@ def pokemon_text(url):
     return text
 
 @respond_to('ポケモン')
-def respond_func(message):
+def random_pokemon(message):
     pokemon_number = random.randint(1,807)
     url = "https://yakkun.com/sm/zukan/n" + str(pokemon_number)
     img = "https://img.yakkun.com/poke/sm/n" + str(pokemon_number) + ".gif"
