@@ -15,7 +15,10 @@ def get_user_ids(channel_id):
 
     r = requests.get(channel_url, params=query)
     data = json.loads(r.text)
-    return data['channel']['members']
+    if data['ok']:
+        return data['channel']['members']
+    else:
+        return None
 
 def get_users(ids):
     user_url = SLACK_API_BASE + '/users.info'
@@ -45,6 +48,10 @@ def rank_text(users):
 @respond_to('shuffle')
 def shuffled_members(message):
     channel_id = message.channel._body['id']
-    users = get_users(get_user_ids(channel_id))
-    random.shuffle(users)
-    message.send(rank_text(users))
+    user_ids = get_user_ids(channel_id)
+    if user_ids:
+        users = get_users(user_ids)
+        random.shuffle(users)
+        message.send(rank_text(users))
+    else:
+        message.send('公開チャンネルでやってみてほしいワン！')
