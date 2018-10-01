@@ -21,6 +21,7 @@ def translate_from_weblio(word):
 
 @respond_to("dict +(.+)")
 def respond_word(message, word):
+    """dict 英単語"""
     if translate_from_weblio(word) == None:
         message.reply("見つからなかったワン！")
     else:
