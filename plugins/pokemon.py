@@ -20,7 +20,7 @@ def pokemon_text(url):
     text = name + "の高さは" + height + "で重さは" + weight + "です"
     return text
 
-@respond_to('ポケモン')
+@respond_to('pokemon')
 def respond_random_pokemon(message):
     pokemon_number = random.randint(1,807)
     url = "https://yakkun.com/sm/zukan/n" + str(pokemon_number)

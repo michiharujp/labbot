@@ -13,7 +13,7 @@ def spitz_text(url):
         array.append(title.find("a").contents[0]+","+"https://www.youtube.com/"+title.a.get("href"))
     return array
 
-@respond_to('スピッツ')
+@respond_to('spitz')
 
 def respond_func(message):
     url="https://www.youtube.com/channel/UCEAOVoVVtVBhcn7vLIQIkDA"
