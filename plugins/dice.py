@@ -3,8 +3,7 @@
 from slackbot.bot import respond_to
 import random
 
-@respond_to(r'(?:([0-9]+)面)?(?:さいころ|サイコロ|ダイス)')
-def respond_n(message, n):
-    n = 6 if n is None or int(n) < 1 else int(n)
-    roll = random.randint(1, n)
+@respond_to('dice')
+def respond(message):
+    roll = random.randint(1, 6)
     message.reply(':game_die: {}'.format(roll))
