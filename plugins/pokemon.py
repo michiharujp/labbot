@@ -17,7 +17,7 @@ def pokemon_text(url):
     height = soup.table.find("td",text=re.compile("\dm")).string
     weight = soup.table.find("li",text=re.compile("\dkg")).string
 
-    text = name + "の高さは" + height + "で重さは" + weight + "です"
+    text = name + "の高さは" + height + "で重さは" + weight + "だワン"
     return text
 
 @respond_to('pokemon')
