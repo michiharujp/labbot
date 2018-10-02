@@ -11,7 +11,7 @@ def rank_text(items):
 
 @respond_to(r'shuffle +(.*)')
 def shuffle(message, items):
-    """shuflle 要素1 要素2 要素3"""
+    """shuffle 要素1 要素2 要素3"""
     items = items.split()
     if len(items) < 2:
         message.send('要素を２つ以上にして、空白区切りで渡すワン！')
