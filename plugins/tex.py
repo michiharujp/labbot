@@ -2,6 +2,7 @@
 
 from slackbot.bot import respond_to
 import urllib.request
+import urllib.parse
 
 IMG_PATH = './src/tex.png'
 API_URL = 'http://chart.apis.google.com/chart?cht=tx&chl='
@@ -19,7 +20,7 @@ def download(url, path):
 @respond_to(r'tex *(.*)')
 def tex_img_url(message, txt):
     """tex [texソース]"""
-    txt = txt.replace(" ","")
+    txt = urllib.parse.quote(txt)
     img_url = API_URL + txt
     if download(img_url, IMG_PATH):
         message.channel.upload_file('test', IMG_PATH)
