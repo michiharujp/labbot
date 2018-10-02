@@ -1,4 +1,5 @@
 # coding: utf-8
+
 import os
 import json
 import requests
@@ -38,15 +39,14 @@ def get_users(ids):
         users.append(name)
     return users
 
-def rank_text(users):
+def rank_text(items):
     msg = ''
-    for i, user in enumerate(users, start=1):
-        msg += "{}: {}\n".format(i,user)
+    for i, item in enumerate(items, start=1):
+        msg += "{}: {}\n".format(i,item)
     return msg
 
-
-@respond_to('shuffle')
-def shuffled_members(message):
+@respond_to('shuffle-members')
+def shuffle_members(message):
     channel_id = message.channel._body['id']
     user_ids = get_user_ids(channel_id)
     if user_ids:
