@@ -9,7 +9,7 @@ def rank_text(items):
         msg += "{}: {}\n".format(i,item)
     return msg
 
-@respond_to(r'shuffle +(.*)')
+@respond_to(r'shuffle *(.*)')
 def shuffle(message, items):
     """shuffle 要素1 要素2 要素3"""
     items = items.split()
