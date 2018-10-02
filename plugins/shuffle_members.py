@@ -42,7 +42,7 @@ def get_users(ids):
 def rank_text(items):
     msg = ''
     for i, item in enumerate(items, start=1):
-        msg += "{}: {}\n".format(i,item)
+        msg += '{}: {}\n'.format(i, item)
     return msg
 
 @respond_to('shuffle-members')
