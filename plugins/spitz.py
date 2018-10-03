@@ -6,16 +6,13 @@ from slackbot.bot import respond_to
 import random
 
 def spitz_text():
-    url = 'https://www.youtube.com/channel/UCEAOVoVVtVBhcn7vLIQIkDA'
+    url = 'https://www.youtube.com/playlist?list=UUEAOVoVVtVBhcn7vLIQIkDA'
     html = urllib.request.urlopen(url)
     soup = BeautifulSoup(html, 'html.parser')
-    a_tag = soup.find('ul', attrs={ 'class': 'yt-uix-shelfslider-list' })
-    tags = a_tag.find_all(attrs={ 'class': 'yt-lockup-title' })
-    array = []
-    for title in tags:
-        array.append('{} https://www.youtube.com/{}'.format(title.find('a').contents[0], title.a.get('href')))
-    return array
+    tags = soup.find_all('a', attrs={ 'class': 'yt-uix-tile-link' })
+    title = random.choice(tags)
+    return '{} https://www.youtube.com{}'.format(title.contents[0].strip(), title.get('href'))
 
 @respond_to('spitz')
 def respond_func(message):
-    message.reply(random.choice(spitz_text()))
+    message.reply(spitz_text())
