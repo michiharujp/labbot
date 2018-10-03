@@ -23,6 +23,6 @@ def tex_img_url(message, txt):
     txt = urllib.parse.quote(txt)
     img_url = API_URL + txt
     if download(img_url, IMG_PATH):
-        message.channel.upload_file('test', IMG_PATH)
+        message.channel.upload_file('tex', IMG_PATH)
     else:
         message.send('形式が正しくないワン！')
