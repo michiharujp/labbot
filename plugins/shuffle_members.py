@@ -42,7 +42,7 @@ def get_users(ids):
 def rank_text(items):
     msg = ''
     for i, item in enumerate(items, start=1):
-        msg += "{}: {}\n".format(i,item)
+        msg += '{}: {}\n'.format(i, item)
     return msg
 
 @respond_to('shuffle-members')
@@ -52,6 +52,6 @@ def shuffle_members(message):
     if user_ids:
         users = get_users(user_ids)
         random.shuffle(users)
-        message.send(rank_text(users))
+        message.reply(rank_text(users))
     else:
-        message.send('公開チャンネルでやってみてほしいワン！')
+        message.reply('公開チャンネルでやってみてほしいワン！')
