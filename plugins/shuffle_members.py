@@ -52,6 +52,6 @@ def shuffle_members(message):
     if user_ids:
         users = get_users(user_ids)
         random.shuffle(users)
-        message.send(rank_text(users))
+        message.reply(rank_text(users))
     else:
-        message.send('公開チャンネルでやってみてほしいワン！')
+        message.reply('公開チャンネルでやってみてほしいワン！')

@@ -25,4 +25,4 @@ def tex_img_url(message, txt):
     if download(img_url, IMG_PATH):
         message.channel.upload_file('test', IMG_PATH)
     else:
-        message.send('形式が正しくないワン！')
+        message.reply('形式が正しくないワン！')

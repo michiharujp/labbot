@@ -14,7 +14,7 @@ def shuffle(message, items):
     """shuffle 要素1 要素2 ..."""
     items = items.split()
     if len(items) < 2:
-        message.send('要素を２つ以上にして、空白区切りで渡すワン！')
+        message.reply('要素を２つ以上にして、空白区切りで渡すワン！')
     else:
         random.shuffle(items)
-        message.send(rank_text(items))
+        message.reply(rank_text(items))

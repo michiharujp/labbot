@@ -24,4 +24,4 @@ def respond_random_pokemon(message):
     pokemon_number = random.randint(1, 807)
     url = 'https://yakkun.com/sm/zukan/n' + str(pokemon_number)
     img = 'https://img.yakkun.com/poke/sm/n' + str(pokemon_number) + '.gif'
-    message.send('{} {}'.format(pokemon_text(url), img))
+    message.reply('{} {}'.format(pokemon_text(url), img))
