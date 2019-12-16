@@ -9,7 +9,7 @@ DOMAIN = 'hamadalab.com'
 # hamadalab限定のファイルであればTrueを返す
 def is_file_for_domain_members(drive_id):
     gauth = GoogleAuth()
-    gauth.LoadCredentialsFile('credentials.json')
+    gauth.LoadCredentialsFile('client_secrets.json')
 
     drive = GoogleDrive(gauth)
     file = drive.CreateFile({'id': drive_id})
