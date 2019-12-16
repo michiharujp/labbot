@@ -23,7 +23,7 @@ def is_file_for_domain_members(drive_id):
 
     # hamadalab内のファイルであればTrue
     return any(
-        p['type'] == 'domain' and
+        'domain' in p and
         p['domain'] == DOMAIN
         for p in file['permissions'])
 
