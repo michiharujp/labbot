@@ -27,7 +27,7 @@ def is_file_for_domain_members(drive_id):
         p['domain'] == DOMAIN
         for p in file['permissions'])
 
-@listen_to(r'https://drive\.google\.com/?(open\?id=|drive/folders/|file/d/)([0-9a-zA-Z_\-]+)')
+@listen_to(r'https://drive\.google\.com/(open\?id=|drive/folders/|file/d/)([0-9a-zA-Z_\-]+)')
 def drive_helper(message, filetype, drive_id):
 
     if is_file_for_domain_members(drive_id):
